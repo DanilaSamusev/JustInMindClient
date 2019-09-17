@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/h.iml" filepath="$PROJECT_DIR$/h.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JustInMindClient.iml" filepath="$PROJECT_DIR$/JustInMindClient.iml" />
     </modules>
   </component>
 </project>
