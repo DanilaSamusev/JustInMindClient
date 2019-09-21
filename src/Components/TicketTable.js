@@ -1,5 +1,7 @@
 import React from 'react';
 import '../styles/ticketsTable.css'
+import TicketState from '../Components/TicketState'
+import TicketUrgency from "./TicketUrgency";
 
 export default class TicketTable extends React.Component {
 
@@ -31,11 +33,13 @@ export default class TicketTable extends React.Component {
                     },
             })
             .then(response => response.json())
-            .then(tickets => this.setState(() => {
-                return {
-                    tickets: tickets,
-                };
-            }));
+            .then(tickets =>
+                this.setState(() => {
+                    console.log(tickets);
+                    return {
+                        tickets: tickets,
+                    };
+                }));
     }
 
     render() {
@@ -46,6 +50,8 @@ export default class TicketTable extends React.Component {
             )
         }
 
+
+
         return (
             <div className='ticketsTable'>
                 <table>
@@ -54,7 +60,7 @@ export default class TicketTable extends React.Component {
                         <th>Name</th>
                         <th>Desired Date</th>
                         <th>Urgency</th>
-                        <th>Status</th>
+                        <th>State</th>
                         <th>Action</th>
                     </tr>
 
@@ -63,9 +69,13 @@ export default class TicketTable extends React.Component {
                             <tr>
                                 <td>{ticket.id}</td>
                                 <td>{ticket.name}</td>
-                                <td>{ticket.desired_Resolution_Date}</td>
-                                <td>{ticket.urgency_Id}</td>
-                                <td>{ticket.state_Id}</td>
+                                <td>{ticket.desiredResolutionDate}</td>
+                                <td>
+                                    <TicketUrgency urgencyId={ticket.urgencyId}/>
+                                </td>
+                                <td>
+                                    <TicketState stateId={ticket.stateId}/>
+                                </td>
                                 <td>
                                     <button>Action</button>
                                 </td>
