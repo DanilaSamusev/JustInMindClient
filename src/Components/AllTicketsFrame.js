@@ -1,4 +1,5 @@
 import * as React from "react";
+import {Link} from "react-router-dom";
 import TicketTable from "./Ticket/TicketTable";
 import '../styles/allTicketsFrame.css'
 
@@ -7,8 +8,11 @@ export default class AllTicketsFrame extends React.Component{
     render() {
         return(
             <div className='allTicketFrame'>
+
                 <div className='createNewTicket'>
-                    <button className='createNewTicketButton'>Create New Ticket</button>
+                        <Link to={'/1'}>
+                            <button className='createNewTicketButton'>Create New Ticket</button>
+                        </Link>
                 </div>
 
                 <div className='ticketSwitchPanel'>
