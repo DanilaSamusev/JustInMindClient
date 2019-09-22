@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/ticketsTable.css'
-import TicketState from '../Components/TicketState'
+import '../../styles/ticketsTable.css'
+import TicketState from '../Ticket/TicketState'
 import TicketUrgency from "./TicketUrgency";
 
 export default class TicketTable extends React.Component {
@@ -61,13 +61,16 @@ export default class TicketTable extends React.Component {
                         <th>State</th>
                         <th>Action</th>
                     </tr>
-
                     {
                         this.state.tickets.map(ticket =>
                             <tr>
                                 <td>{ticket.id}</td>
                                 <td>{ticket.name}</td>
-                                <td>{ticket.desiredResolutionDate}</td>
+                                <td>
+                                    {
+                                        new Date(ticket.desiredResolutionDate).toLocaleDateString('en-US')
+                                    }
+                                </td>
                                 <td>
                                     <TicketUrgency urgencyId={ticket.urgencyId}/>
                                 </td>

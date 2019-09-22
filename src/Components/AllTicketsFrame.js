@@ -1,5 +1,5 @@
 import * as React from "react";
-import TicketTable from "./TicketTable";
+import TicketTable from "./Ticket/TicketTable";
 import '../styles/allTicketsFrame.css'
 
 export default class AllTicketsFrame extends React.Component{
