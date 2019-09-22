@@ -1,0 +1,8 @@
+.mainFrame{
+    background: white;
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+    width: 800px;
+    height: 600px;
+}

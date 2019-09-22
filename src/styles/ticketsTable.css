@@ -3,12 +3,14 @@ table {
     border-spacing: 0;
     text-align: center;
 }
+
 th {
     background: rgba(0, 0, 0, 0.28);
     color: black;
     text-shadow: 0 1px 1px rgba(151, 105, 105, 0.84);
     padding: 10px 20px;
 }
+
 th, td {
     border-style: solid;
     border-width: 1px;
@@ -19,4 +21,3 @@ td {
     padding: 10px 20px;
     background: #e6e5e4;
 }
-

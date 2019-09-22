@@ -50,8 +50,6 @@ export default class TicketTable extends React.Component {
             )
         }
 
-
-
         return (
             <div className='ticketsTable'>
                 <table>
@@ -77,7 +75,7 @@ export default class TicketTable extends React.Component {
                                     <TicketState stateId={ticket.stateId}/>
                                 </td>
                                 <td>
-                                    <button>Action</button>
+                                    <button className='actionButton'>Action</button>
                                 </td>
                             </tr>
                         )}

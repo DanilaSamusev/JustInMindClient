@@ -1,6 +1,46 @@
 .allTicketFrame{
-    background: white;
-    margin-top: 1%;
-    width: 800px;
-    height: 400px;
+    width: min-content;
+}
+
+.createNewTicket, .ticketSwitchPanel, .searchingInput, .ticketsTable{
+    margin-top: 4%;
+}
+
+button{
+    border-radius: 5px;
+}
+
+.createNewTicket{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.createNewTicketButton, .actionButton{
+    background-color: #4d4d4d;
+    color: white;
+}
+
+.createNewTicketButton{
+    width: 200px;
+    height: 30px;
+}
+
+.actionButton{
+    width: 100px;
+    height: 25px;
+}
+
+.ticketSwitchPanel{
+    display: flex;
+    justify-content: space-between;
+}
+
+.allTicketsButton, .myTicketsButton{
+    width: 290px;
+}
+
+.searchingInput{
+    display: flex;
+    border-radius: 9px;
+    justify-content: flex-start;
 }
