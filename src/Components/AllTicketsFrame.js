@@ -10,7 +10,7 @@ export default class AllTicketsFrame extends React.Component{
             <div className='allTicketFrame'>
 
                 <div className='createNewTicket'>
-                        <Link to={'/1'}>
+                        <Link to={'/ticketCreation'}>
                             <button className='createNewTicketButton'>Create New Ticket</button>
                         </Link>
                 </div>

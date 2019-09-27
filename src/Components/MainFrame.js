@@ -1,7 +1,7 @@
 import * as React from "react";
 import AllTicketsFrame from "./AllTicketsFrame";
 import {BrowserRouter, Route} from "react-router-dom";
-import {TicketCreationFrame} from "./TicketCreationFrame";
+import {TicketCreationFrame} from "./TicketCreation/TicketCreationFrame";
 import '../styles/mainFrame.css'
 
 export default class MainFrame extends React.Component {
@@ -11,10 +11,8 @@ export default class MainFrame extends React.Component {
             <div className='mainFrame'>
                 <BrowserRouter>
 
-                    <div>
-                        <Route exact path='/' component={AllTicketsFrame}/>
-                        <Route exact path='/1' component={TicketCreationFrame}/>
-                    </div>
+                    <Route exact path='/' component={AllTicketsFrame}/>
+                    <Route exact path='/ticketCreation' component={TicketCreationFrame}/>
 
                 </BrowserRouter>
             </div>

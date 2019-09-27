@@ -6,10 +6,6 @@
     margin-top: 4%;
 }
 
-button{
-    border-radius: 5px;
-}
-
 .createNewTicket{
     display: flex;
     justify-content: flex-end;

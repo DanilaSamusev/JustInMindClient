@@ -1,0 +1,4 @@
+.ticketCreationBody{
+    display: flex;
+    flex-direction: column;
+}

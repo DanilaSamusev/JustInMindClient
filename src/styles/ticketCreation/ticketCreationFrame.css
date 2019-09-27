@@ -1,0 +1,18 @@
+.ticketCreationFrame {
+    display: flex;
+    width: 90%;
+    height: 90%;
+}
+
+.ticketListButton {
+    justify-content: flex-start;
+    height: min-content;
+    margin-top: 2.5%;
+}
+
+.ticketCreationForm {
+
+    width: 200px;
+    height: 400px;
+}
+
