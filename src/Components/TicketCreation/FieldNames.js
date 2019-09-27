@@ -1,9 +1,10 @@
 import * as React from "react";
+import '../../styles/ticketCreation/fieldNames.css'
 
-export default class FieldNames extends React.Component{
+export default class FieldNames extends React.Component {
 
     render() {
-        return(
+        return (
             <div className='fieldNames'>
 
                 <div>
@@ -17,6 +18,8 @@ export default class FieldNames extends React.Component{
                 <div>
                     Description
                 </div>
+
+                <label/>
 
                 <div>
                     Urgency
@@ -33,6 +36,7 @@ export default class FieldNames extends React.Component{
                 <div>
                     Comment
                 </div>
+
             </div>
         )
     }

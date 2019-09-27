@@ -1,0 +1,13 @@
+.fieldNames {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.fieldNames > div {
+    margin-top: 7%;
+}
+
+.fieldNames > label{
+    margin-top: 33%;
+}

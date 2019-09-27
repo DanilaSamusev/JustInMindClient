@@ -7,12 +7,7 @@
 .ticketListButton {
     justify-content: flex-start;
     height: min-content;
+    width: 15%;
     margin-top: 2.5%;
-}
-
-.ticketCreationForm {
-
-    width: 200px;
-    height: 400px;
 }
 

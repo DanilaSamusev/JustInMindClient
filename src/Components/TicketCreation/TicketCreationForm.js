@@ -10,22 +10,19 @@ export default class TicketCreationForm extends React.Component {
 
                 <FieldNames/>
 
-
-                    <form
-                        className='form'
-                        onSubmit={() => this.fetchTicket()}
-                    >
-                        <input/>
-                        <input/>
-                        <input/>
-                        <textarea/>
-                        <input/>
-                        <input/>
-                        <button>Browse</button>
-                        <textarea/>
-                        <button>Save as Draft</button>
-                        <button type='submit'>Submit</button>
-                    </form>
+                <form className='form'
+                    onSubmit={() => this.fetchTicket()}
+                >
+                    <input/>
+                    <input/>
+                    <textarea/>
+                    <input/>
+                    <input/>
+                    <button>Browse</button>
+                    <textarea/>
+                    <button>Save as Draft</button>
+                    <button type='submit'>Submit</button>
+                </form>
 
             </div>
         )
