@@ -8,11 +8,11 @@ export default class FieldNames extends React.Component {
             <div className='fieldNames'>
 
                 <div>
-                    Category
+                    Category*
                 </div>
 
                 <div>
-                    Name
+                    Name*
                 </div>
 
                 <div>
@@ -22,7 +22,7 @@ export default class FieldNames extends React.Component {
                 <label/>
 
                 <div>
-                    Urgency
+                    Urgency*
                 </div>
 
                 <div>

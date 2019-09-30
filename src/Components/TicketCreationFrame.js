@@ -1,6 +1,7 @@
 import * as React from "react";
 import '../styles/ticketCreation/ticketCreationFrame.css'
 import TicketCreationBody from '../Components/TicketCreation/TicketCreationBody'
+import {Link} from "react-router-dom";
 
 export class TicketCreationFrame extends React.Component {
 
@@ -9,7 +10,9 @@ export class TicketCreationFrame extends React.Component {
             <div className='ticketCreationFrame'>
 
                 <div className='ticketListButton'>
-                    <button>Ticket List</button>
+                    <Link to={'/'}>
+                        <button>Ticket List</button>
+                    </Link>
                 </div>
 
                 <TicketCreationBody/>
