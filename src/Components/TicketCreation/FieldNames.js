@@ -3,6 +3,8 @@ import '../../styles/ticketCreation/fieldNames.css'
 
 export default class FieldNames extends React.Component {
 
+
+
     render() {
         return (
             <div className='fieldNames'>

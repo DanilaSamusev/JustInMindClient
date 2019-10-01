@@ -16,10 +16,10 @@ export default class TicketTable extends React.Component {
 
     componentDidMount() {
 
-        this.configureTicketState();
+        this.getTicketState();
     }
 
-    async configureTicketState() {
+    getTicketState() {
 
         let url = 'http://localhost:5000/api/ticket/allTickets';
 
@@ -35,7 +35,6 @@ export default class TicketTable extends React.Component {
             .then(response => response.json())
             .then(tickets =>
                 this.setState(() => {
-                    console.log(tickets);
                     return {
                         tickets: tickets,
                     };
