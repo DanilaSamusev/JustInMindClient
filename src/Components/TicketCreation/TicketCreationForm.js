@@ -14,7 +14,7 @@ export default class TicketCreationForm extends React.Component {
 
             name: '',
             description: '',
-            category: '',
+            categoryId: '',
             desiredResolutionDate: '',
             comment: '',
             urgencyId: 0,
@@ -59,8 +59,8 @@ export default class TicketCreationForm extends React.Component {
             description: this.state.description,
             createdOn: new Date(),
             desiredResolutionDate: this.state.desiredResolutionDate,
-            state: 'New',
-            category: this.state.category,
+            stateId: 'New',
+            categoryId: this.state.categoryId,
             urgencyId: this.state.urgencyId,
             comment: this.state.comment,
         };
@@ -103,7 +103,7 @@ export default class TicketCreationForm extends React.Component {
                 <div
                     className='form'
                 >
-                    <select name='category' onChange={this.handleInputChange}>
+                    <select name='categoryId' onChange={this.handleInputChange}>
                         <option value={0}/>
                         {
 
