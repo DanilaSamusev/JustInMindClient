@@ -14,7 +14,7 @@ export default class TicketCreationForm extends React.Component {
 
             name: '',
             description: '',
-            categoryId: '',
+            categoryId: 0,
             desiredResolutionDate: '',
             comment: '',
             urgencyId: 0,
@@ -74,6 +74,15 @@ export default class TicketCreationForm extends React.Component {
                     'Content-Type': 'application/json',
                 }
         })
+            .then(response => {
+                if (response.status >= 200 && response.status < 300){
+
+                    return alert('Ticket has been added');
+                }
+                else{
+                    return response.json().then((data) => alert(data));
+                }
+            })
     }
 
     handleInputChange(event) {

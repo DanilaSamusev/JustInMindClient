@@ -2,6 +2,7 @@ import React from 'react';
 import '../../styles/ticketsTable.css'
 import TicketState from '../Ticket/TicketState'
 import TicketUrgency from "./TicketUrgency";
+import {Link} from "react-router-dom";
 
 export default class TicketTable extends React.Component {
 
@@ -15,11 +16,6 @@ export default class TicketTable extends React.Component {
     }
 
     componentDidMount() {
-
-        this.getTicketState();
-    }
-
-    getTicketState() {
 
         let url = 'http://localhost:5000/api/ticket/allTickets';
 
@@ -64,7 +60,11 @@ export default class TicketTable extends React.Component {
                         this.state.tickets.map(ticket =>
                             <tr>
                                 <td>{ticket.id}</td>
-                                <td>{ticket.name}</td>
+                                <td>
+                                    <Link to={'/ticketOverview/' + ticket.id}>
+                                        {ticket.name}
+                                    </Link>
+                                </td>
                                 <td>
                                     {
                                         new Date(ticket.desiredResolutionDate).toLocaleDateString('en-US')
