@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import TicketTable from "./Ticket/TicketTable";
 import '../styles/allTicketsFrame.css'
 
-export default class AllTicketsFrame extends React.Component{
+export default class AllTicketsWindow extends React.Component{
 
     render() {
         return(

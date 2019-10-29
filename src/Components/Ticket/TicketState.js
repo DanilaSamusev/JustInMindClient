@@ -2,14 +2,6 @@ import React from "react";
 
 export default class TicketState extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            stateId: this.props.stateId,
-        };
-    }
-
     render() {
 
         let states = {
@@ -22,10 +14,10 @@ export default class TicketState extends React.Component {
             7 : {name: 'Canceled'}
         };
 
-        let stateName = states[this.state.stateId].name;
+        let stateName = states[this.props.stateId].name;
 
         return (
-            <div>{stateName}</div>
+            <a>{stateName}</a>
         )
     }
 }

@@ -1,5 +1,6 @@
 import * as React from "react";
 import ToTicketListButton from "./ToTicketListButton";
+import TicketOverviewData from "./TicketOverview/TicketOverviewData";
 
 export default class TicketOverviewWindow extends React.Component{
 
@@ -26,19 +27,37 @@ export default class TicketOverviewWindow extends React.Component{
                     },
             })
             .then(response => response.json())
-            .then(ticket =>
+            .then(data =>
                 this.setState(() => {
                     return {
-                        ticket: ticket,
+                        ticket: data[0],
                     };
                 }));
     }
 
     render(){
+
+        let ticket = this.state.ticket;
+
+        if (ticket == null){
+            return null;
+        }
+
         return(
             <div>
                 <ToTicketListButton/>
 
+                Ticket ({ticket.id}) - {ticket.name}
+
+                <button>Edit</button>
+                <button>LeaveFeedback</button>
+
+                <TicketOverviewData ticket={ticket}/>
+
+                <button>History</button>
+                <button>Comments</button>
+
+                <table></table>
             </div>
 
         )

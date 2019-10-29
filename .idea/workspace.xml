@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae1307d9-c27c-47e2-9873-a2808f186fe1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Components/TicketOverviewWindow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/ToTicketListButton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/TicketOverview/TicketOverviewData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/MainFrame.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MainFrame.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Ticket/TicketTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Ticket/TicketTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/TicketCreation/TicketCreationForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/TicketCreation/TicketCreationForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/TicketCreationFrame.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/TicketCreationFrame.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/AllTicketsFrame.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AllTicketsWindow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MainFrame.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MainWindow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Ticket/TicketState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Ticket/TicketState.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Ticket/TicketUrgency.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Ticket/TicketUrgency.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/TicketOverviewWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/TicketOverviewWindow.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,22 +24,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/MainFrame.js">
+        <entry file="file://$PROJECT_DIR$/src/Components/Ticket/TicketUrgency.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
+              <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Components/TicketOverviewWindow.js">
+        <entry file="file://$PROJECT_DIR$/src/Components/TicketOverview/TicketOverviewData.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="425">
+              <caret line="25" column="22" lean-forward="true" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -47,10 +45,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/Ticket/TicketState.js">
+        <entry file="file://$PROJECT_DIR$/src/Components/TicketOverviewWindow.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+            <state relative-caret-position="323">
+              <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,8 +59,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/Ticket/TicketTable.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="36" column="20" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="36" selection-end-column="20" />
+            <state relative-caret-position="627">
+              <caret line="76" column="46" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -68,10 +69,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/Ticket/TicketUrgency.js">
+        <entry file="file://$PROJECT_DIR$/src/Components/Ticket/TicketState.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="255">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -128,7 +129,11 @@
         <option value="$PROJECT_DIR$/src/Components/ToTicketListButton.js" />
         <option value="$PROJECT_DIR$/src/Components/MainFrame.js" />
         <option value="$PROJECT_DIR$/src/Components/Ticket/TicketTable.js" />
+        <option value="$PROJECT_DIR$/src/Components/AllTicketsWindow.js" />
+        <option value="$PROJECT_DIR$/src/Components/Ticket/TicketUrgency.js" />
+        <option value="$PROJECT_DIR$/src/Components/Ticket/TicketState.js" />
         <option value="$PROJECT_DIR$/src/Components/TicketOverviewWindow.js" />
+        <option value="$PROJECT_DIR$/src/Components/TicketOverview/TicketOverviewData.js" />
       </list>
     </option>
   </component>
@@ -173,7 +178,7 @@
               <item name="JustInMindClient" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="TicketCreation" type="462c0819:PsiDirectoryNode" />
+              <item name="TicketOverview" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -262,12 +267,12 @@
       <workItem from="1569611919103" duration="25111000" />
       <workItem from="1570103895321" duration="1678000" />
       <workItem from="1570203618722" duration="9327000" />
-      <workItem from="1572174197712" duration="9601000" />
+      <workItem from="1572174197712" duration="16429000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109540000" />
+    <option name="totallyTimeSpent" value="116368000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -292,7 +297,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.3008299" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.3008299" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39937758" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -313,7 +318,7 @@
       <window_info anchor="right" id="Database" order="8" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21695095" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21908316" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
@@ -323,7 +328,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.31385282" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.3008299" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39937758" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -502,16 +507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/AllTicketsFrame.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/TicketCreationFrame.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -519,44 +514,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Ticket/TicketUrgency.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/MainFrame.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/MainWindow.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Ticket/TicketState.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/AllTicketsWindow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+        <state relative-caret-position="272">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Ticket/TicketTable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="36" column="20" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="36" selection-end-column="20" />
+        <state relative-caret-position="627">
+          <caret line="76" column="46" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Ticket/TicketState.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Ticket/TicketUrgency.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/TicketOverviewWindow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="323">
+          <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/TicketOverview/TicketOverviewData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="22" lean-forward="true" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
