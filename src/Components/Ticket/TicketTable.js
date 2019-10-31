@@ -3,6 +3,7 @@ import '../../styles/ticketsTable.css'
 import TicketState from '../Ticket/TicketState'
 import TicketUrgency from "./TicketUrgency";
 import {Link} from "react-router-dom";
+import ActionWithTicket from "../ActionWithTicket";
 
 export default class TicketTable extends React.Component {
 
@@ -77,7 +78,7 @@ export default class TicketTable extends React.Component {
                                     <TicketState stateId={ticket.stateId}/>
                                 </td>
                                 <td>
-                                    <button className='actionButton'>Action</button>
+                                    <ActionWithTicket ticketState={3}/>
                                 </td>
                             </tr>
                         )}
