@@ -7,40 +7,11 @@ import ActionWithTicket from "../ActionWithTicket";
 
 export default class TicketTable extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-
-            tickets: null,
-        };
-    }
-
-    componentDidMount() {
-
-        let url = 'http://localhost:5000/api/ticket/allTickets';
-
-        fetch(url,
-            {
-                method: 'get',
-                headers:
-                    {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                    },
-            })
-            .then(response => response.json())
-            .then(tickets =>
-                this.setState(() => {
-                    return {
-                        tickets: tickets,
-                    };
-                }));
-    }
-
     render() {
 
-        if (this.state.tickets == null) {
+        let tickets = this.props.tickets;
+
+        if (tickets == null) {
             return (
                 <div>No Data</div>
             )
@@ -58,7 +29,7 @@ export default class TicketTable extends React.Component {
                         <th>Action</th>
                     </tr>
                     {
-                        this.state.tickets.map(ticket =>
+                        tickets.map(ticket =>
                             <tr>
                                 <td>{ticket.id}</td>
                                 <td>
