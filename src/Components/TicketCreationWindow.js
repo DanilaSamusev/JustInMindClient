@@ -3,7 +3,7 @@ import '../styles/ticketCreation/ticketCreationFrame.css'
 import TicketCreationBody from '../Components/TicketCreation/TicketCreationBody'
 import ToTicketListButton from "./ToTicketListButton";
 
-export class TicketCreationFrame extends React.Component {
+export class TicketCreationWindow extends React.Component {
 
     render() {
         return (

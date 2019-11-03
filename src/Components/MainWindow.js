@@ -1,7 +1,7 @@
 import * as React from "react";
 import AllTicketsWindow from "./AllTicketsWindow";
 import {BrowserRouter, Route} from "react-router-dom";
-import {TicketCreationFrame} from "./TicketCreationFrame";
+import {TicketCreationWindow} from "./TicketCreationWindow";
 import TicketOverviewWindow from "./TicketOverviewWindow";
 import '../styles/mainFrame.css'
 
@@ -13,7 +13,7 @@ export default class MainWindow extends React.Component {
                 <BrowserRouter>
 
                     <Route exact path='/' component={AllTicketsWindow}/>
-                    <Route exact path='/ticketCreation' component={TicketCreationFrame}/>
+                    <Route exact path='/ticketCreation' component={TicketCreationWindow}/>
                     <Route exact path='/ticketOverview/:ticketId' component={TicketOverviewWindow}/>
 
                 </BrowserRouter>

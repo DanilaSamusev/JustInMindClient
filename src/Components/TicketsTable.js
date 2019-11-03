@@ -1,9 +1,9 @@
 import React from 'react';
-import '../styles/ticketsTable.css'
 import TicketState from './Ticket/TicketState'
 import TicketUrgency from './Ticket/TicketUrgency';
-import {Link} from "react-router-dom";
 import ActionWithTicket from "./ActionWithTicket";
+import {Link} from "react-router-dom";
+import '../styles/ticketsTable.css'
 
 export default class TicketsTable extends React.Component {
 
@@ -20,6 +20,7 @@ export default class TicketsTable extends React.Component {
         return (
             <div className='ticketsTable'>
                 <table>
+                    <tbody>
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
@@ -30,7 +31,7 @@ export default class TicketsTable extends React.Component {
                     </tr>
                     {
                         tickets.map(ticket =>
-                            <tr>
+                            <tr key={ticket.id}>
                                 <td>{ticket.id}</td>
                                 <td>
                                     <Link to={'/ticketOverview/' + ticket.id}>
@@ -53,6 +54,7 @@ export default class TicketsTable extends React.Component {
                                 </td>
                             </tr>
                         )}
+                    </tbody>
                 </table>
             </div>
         )

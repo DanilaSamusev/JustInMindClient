@@ -11,12 +11,12 @@ export default class TicketCreationForm extends React.Component {
 
         this.state = {
             categories: null,
-
             name: '',
             description: '',
             categoryId: 0,
             desiredResolutionDate: '',
             comment: '',
+            stateId: '',
             urgencyId: 0,
         };
 
@@ -51,7 +51,7 @@ export default class TicketCreationForm extends React.Component {
                 }));
     }
 
-    fetchTicket() {
+    fetchTicket(stateId) {
 
         let url = 'http://localhost:5000/api/ticket/ticket';
         let data = {
@@ -59,7 +59,7 @@ export default class TicketCreationForm extends React.Component {
             description: this.state.description,
             createdOn: new Date(),
             desiredResolutionDate: this.state.desiredResolutionDate,
-            stateId: 'New',
+            stateId: stateId,
             categoryId: this.state.categoryId,
             urgencyId: this.state.urgencyId,
             comment: this.state.comment,
@@ -137,8 +137,8 @@ export default class TicketCreationForm extends React.Component {
                     <input name='desiredResolutionDate' onChange={this.handleInputChange}/>
                     <button>Browse</button>
                     <textarea name='comment' onChange={this.handleInputChange}/>
-                    <button>Save as Draft</button>
-                    <button onClick={this.fetchTicket}>Submit</button>
+                    <button onClick={() => this.fetchTicket('Draft')}>Save as Draft</button>
+                    <button onClick={() => this.fetchTicket('New')}>Submit</button>
                 </div>
 
             </div>
