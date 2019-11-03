@@ -1,14 +1,17 @@
 import * as React from "react";
 import {Link} from "react-router-dom";
-import TicketTable from "./Ticket/TicketTable";
+import TicketsTable from "./TicketsTable";
+import "../styles/styles.css"
 
-export default class AllTicketsWindow extends React.Component{
+export default class AllTicketsWindow extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-
+            allTicketsButtonClassName: ' focusedButton',
+            myTicketsButtonClassName: '',
+            ticketsToDisplay: null,
             tickets: null,
         };
     }
@@ -31,29 +34,78 @@ export default class AllTicketsWindow extends React.Component{
                 this.setState(() => {
                     return {
                         tickets: tickets,
+                        ticketsToDisplay: tickets,
                     };
                 }));
+
+        localStorage.setItem('userId', '1');
+        localStorage.setItem('userRole', 'Engineer')
+    }
+
+    onClick(allTicketsButtonClassName, myTicketsButtonClassName) {
+
+        this.setState(() => {
+            return {
+                allTicketsButtonClassName: allTicketsButtonClassName,
+                myTicketsButtonClassName: myTicketsButtonClassName,
+            };
+        });
+    }
+
+    selectTicketsByOwnerId(tickets, id) {
+
+        if (tickets === null){
+            return tickets;
+        }
+
+        let selectedTickets = [];
+
+        for (let i = 0; i < tickets.length; i++) {
+
+            if (tickets[i].ownerId == id) {
+                selectedTickets.push(tickets[i])
+            }
+        }
+
+        return selectedTickets;
     }
 
     render() {
 
-        return(
+        let ticketsToDisplay;
+
+        if (this.state.myTicketsButtonClassName === 'focusedButton') {
+            ticketsToDisplay = this.selectTicketsByOwnerId(this.state.tickets, localStorage.getItem('userId'));
+        }
+        else{
+            ticketsToDisplay = this.state.tickets;
+        }
+
+        return (
             <div className='allTicketFrame'>
 
                 <div className='createNewTicket'>
-                        <Link to={'/ticketCreation'}>
-                            <button className='createNewTicketButton'>Create New Ticket</button>
-                        </Link>
+                    <Link to={'/ticketCreation'}>
+                        <button className='createNewTicketButton'>Create New Ticket</button>
+                    </Link>
                 </div>
 
                 <div className='ticketSwitchPanel'>
-                    <button >All Tickets</button>
-                    <button onClick={() => null}>My Tickets</button>
+                    <button
+                        className={this.state.allTicketsButtonClassName}
+                        onClick={() => this.onClick('focusedButton', '')}>
+                        All Tickets
+                    </button>
+                    <button
+                        className={this.state.myTicketsButtonClassName}
+                        onClick={() => this.onClick('', 'focusedButton')}>
+                        My Tickets
+                    </button>
                 </div>
 
                 <input className='searchingInput'/>
 
-                <TicketTable tickets={this.state.tickets}/>
+                <TicketsTable tickets={ticketsToDisplay}/>
             </div>
         )
     }

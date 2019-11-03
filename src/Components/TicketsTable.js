@@ -1,11 +1,11 @@
 import React from 'react';
-import '../../styles/ticketsTable.css'
-import TicketState from '../Ticket/TicketState'
-import TicketUrgency from "./TicketUrgency";
+import '../styles/ticketsTable.css'
+import TicketState from './Ticket/TicketState'
+import TicketUrgency from './Ticket/TicketUrgency';
 import {Link} from "react-router-dom";
-import ActionWithTicket from "../ActionWithTicket";
+import ActionWithTicket from "./ActionWithTicket";
 
-export default class TicketTable extends React.Component {
+export default class TicketsTable extends React.Component {
 
     render() {
 
@@ -49,7 +49,7 @@ export default class TicketTable extends React.Component {
                                     <TicketState stateId={ticket.stateId}/>
                                 </td>
                                 <td>
-                                    <ActionWithTicket ticketState={3}/>
+                                    <ActionWithTicket ticketStateId={ticket.stateId}/>
                                 </td>
                             </tr>
                         )}

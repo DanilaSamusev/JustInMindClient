@@ -4,7 +4,7 @@ import {Constants} from "../Constants";
 export default class ActionWithTicket extends React.Component {
 
     ticketHasState(stateName){
-        return Constants.TICKET_STATES[this.props.ticketState].name === stateName
+        return Constants.TICKET_STATES[this.props.ticketStateId].name === stateName
     }
 
     getEngineerButtons(){
@@ -26,6 +26,8 @@ export default class ActionWithTicket extends React.Component {
                 </div>
             )
         }
+
+        return null;
     }
 
     getManagerButtons(){
@@ -50,6 +52,8 @@ export default class ActionWithTicket extends React.Component {
                 </div>
             )
         }
+
+        return null;
     }
 
     getEmployeeButtons(){
@@ -63,12 +67,23 @@ export default class ActionWithTicket extends React.Component {
                 </div>
             )
         }
+
+        return null;
+
     }
 
     render() {
 
-        return (
-            this.getEngineerButtons()
-        )
+        if (localStorage.getItem('userRole') === 'Employee'){
+            return this.getEmployeeButtons();
+        }
+
+        if (localStorage.getItem('userRole') === 'Engineer'){
+            return this.getEngineerButtons();
+        }
+
+        if (localStorage.getItem('userRole') === 'Manager'){
+            return this.getManagerButtons();
+        }
     }
 }

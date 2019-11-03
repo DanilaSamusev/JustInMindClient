@@ -50,14 +50,12 @@ export default class TicketOverviewWindow extends React.Component{
                 Ticket ({ticket.id}) - {ticket.name}
 
                 <button>Edit</button>
-                <button>LeaveFeedback</button>
+                <button>Leave Feedback</button>
 
                 <TicketOverviewData ticket={ticket}/>
 
                 <button>History</button>
                 <button>Comments</button>
-
-                <table></table>
             </div>
 
         )
