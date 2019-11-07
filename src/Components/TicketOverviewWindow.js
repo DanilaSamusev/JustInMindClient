@@ -47,7 +47,7 @@ export default class TicketOverviewWindow extends React.Component{
             <div>
                 <ToTicketListButton/>
 
-                Ticket ({ticket.id}) - {ticket.name}
+                Ticket ({ticket.stateId}) - {ticket.name}
 
                 <button>Edit</button>
                 <button>Leave Feedback</button>

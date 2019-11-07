@@ -5,7 +5,7 @@ export default class TicketState extends React.Component {
 
     render() {
 
-        let stateName = Constants.TICKET_STATES[this.props.stateId].name;
+        let stateName = Constants.TICKET_ACTIONS[this.props.stateId].name;
 
         return (
             <a>{stateName}</a>

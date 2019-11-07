@@ -118,7 +118,7 @@ export default class TicketCreationForm extends React.Component {
 
                             this.state.categories.map((category, key) => {
                                 return (
-                                    <option key={key} value={category.id}>{category.name}</option>
+                                    <option key={key} value={category.stateId}>{category.name}</option>
                                 )
                             })
                         }

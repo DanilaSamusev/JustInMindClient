@@ -1,9 +1,9 @@
 import React from 'react';
-import TicketState from './Ticket/TicketState'
 import TicketUrgency from './Ticket/TicketUrgency';
 import ActionWithTicket from "./ActionWithTicket";
 import {Link} from "react-router-dom";
 import '../styles/ticketsTable.css'
+import {Constants} from "../Constants";
 
 export default class TicketsTable extends React.Component {
 
@@ -13,7 +13,7 @@ export default class TicketsTable extends React.Component {
 
         if (tickets == null) {
             return (
-                <div>No Data</div>
+                null
             )
         }
 
@@ -47,10 +47,10 @@ export default class TicketsTable extends React.Component {
                                     <TicketUrgency urgencyId={ticket.urgencyId}/>
                                 </td>
                                 <td>
-                                    <TicketState stateId={ticket.stateId}/>
+                                    {Constants.STATES[ticket.stateId]}
                                 </td>
                                 <td>
-                                    <ActionWithTicket ticketStateId={ticket.stateId}/>
+                                    <ActionWithTicket ticket={ticket} changeTicketState={this.props.changeTicketState}/>
                                 </td>
                             </tr>
                         )}

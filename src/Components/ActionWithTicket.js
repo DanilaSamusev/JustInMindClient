@@ -3,87 +3,29 @@ import {Constants} from "../Constants";
 
 export default class ActionWithTicket extends React.Component {
 
-    ticketHasState(stateName){
-        return Constants.TICKET_STATES[this.props.ticketStateId].name === stateName
-    }
+    changeTicketState(stateId) {
 
-    getEngineerButtons(){
-
-        if (this.ticketHasState('Approved')){
-
-            return (
-                <div>
-                    <button>Assign To Me</button>
-                    <button>Cancel</button>
-                </div>
-            )
-        }
-
-        if (this.ticketHasState('In Progress')){
-            return (
-                <div>
-                    <button>Done</button>
-                </div>
-            )
-        }
-
-        return null;
-    }
-
-    getManagerButtons(){
-
-        if (this.ticketHasState('Draft') || this.ticketHasState('Declined')){
-
-            return (
-                <div>
-                    <button>Submit</button>
-                    <button>Cancel</button>
-                </div>
-            )
-        }
-
-        if (this.ticketHasState('New')){
-
-            return (
-                <div>
-                    <button>Approve</button>
-                    <button>Submit</button>
-                    <button>Cancel</button>
-                </div>
-            )
-        }
-
-        return null;
-    }
-
-    getEmployeeButtons(){
-
-        if (this.ticketHasState('Draft') || this.ticketHasState('Declined')){
-
-            return (
-                <div>
-                    <button>Submit</button>
-                    <button>Cancel</button>
-                </div>
-            )
-        }
-
-        return null;
-
+        let ticket = this.props.ticket;
+        ticket.stateId = stateId;
+        this.props.changeTicketState();
     }
 
     render() {
 
-        if (localStorage.getItem('userRole') === 'Employee'){
-            return this.getEmployeeButtons();
-        }
+        let ticket = this.props.ticket;
+        let ticketStateName = Constants.STATES[ticket.stateId];
+        let userRole = localStorage.getItem("userRole");
+        let actions = Constants.USER_ACTIONS[userRole][ticketStateName].actions;
 
-        if (localStorage.getItem('userRole') === 'Engineer'){
-            return this.getEngineerButtons();
-        }
-
-        if (localStorage.getItem('userRole') === 'Manager'){
-            return this.getManagerButtons();
-        }
+        return (
+            <div>
+                {actions.map(
+                    action =>
+                        <button onClick={() => this.changeTicketState(action.stateId)}>
+                            {action.name}
+                        </button>)
+                }
+            </div>
+        )
     }
 }

@@ -11,9 +11,21 @@ export default class AllTicketsWindow extends React.Component {
         this.state = {
             allTicketsButtonClassName: ' focusedButton',
             myTicketsButtonClassName: '',
-            ticketsToDisplay: null,
             tickets: null,
         };
+
+        this.changeTicketState = this.changeTicketState.bind(this);
+    }
+
+    changeTicketState(){
+
+        let tickets = this.state.tickets;
+
+        this.setState(() => {
+            return {
+                tickets : tickets,
+            };
+        });
     }
 
     componentDidMount() {
@@ -34,7 +46,6 @@ export default class AllTicketsWindow extends React.Component {
                 this.setState(() => {
                     return {
                         tickets: tickets,
-                        ticketsToDisplay: tickets,
                     };
                 }));
 
@@ -105,7 +116,7 @@ export default class AllTicketsWindow extends React.Component {
 
                 <input className='searchingInput'/>
 
-                <TicketsTable tickets={ticketsToDisplay}/>
+                <TicketsTable tickets={ticketsToDisplay} changeTicketState={this.changeTicketState}/>
             </div>
         )
     }
