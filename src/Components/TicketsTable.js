@@ -47,7 +47,7 @@ export default class TicketsTable extends React.Component {
                                     <TicketUrgency urgencyId={ticket.urgencyId}/>
                                 </td>
                                 <td>
-                                    {Constants.STATES[ticket.stateId]}
+                                    {Constants.STATES[ticket.stateId - 1]}
                                 </td>
                                 <td>
                                     <ActionWithTicket ticket={ticket} changeTicketState={this.props.changeTicketState}/>
