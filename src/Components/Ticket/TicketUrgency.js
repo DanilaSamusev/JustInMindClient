@@ -5,10 +5,10 @@ export default class TicketUrgency extends React.Component{
     render(){
 
         let urgency = {
-            1 : {name: 'Critical'},
-            2 : {name: 'High'},
-            3 : {name: 'Average'},
-            4 : {name: 'Low'}
+            1 : {name: 'Low'},
+            2 : {name: 'Average'},
+            3 : {name: 'High'},
+            4 : {name: 'Critical'}
         };
 
         let urgencyName = urgency[this.props.urgencyId].name;

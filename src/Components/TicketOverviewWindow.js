@@ -1,6 +1,7 @@
 import * as React from "react";
 import ToTicketListButton from "./ToTicketListButton";
 import TicketOverviewData from "./TicketOverview/TicketOverviewData";
+import {Link} from "react-router-dom";
 
 export default class TicketOverviewWindow extends React.Component{
 
@@ -15,7 +16,7 @@ export default class TicketOverviewWindow extends React.Component{
 
     componentDidMount() {
 
-        let url = 'http://localhost:5000/api/ticket/ticket?ticketId=' + this.props.match.params.ticketId;
+        let url = 'http://localhost:5000/api/ticket/ticketOverview?ticketId=' + this.props.match.params.ticketId;
 
         fetch(url,
             {
@@ -49,7 +50,10 @@ export default class TicketOverviewWindow extends React.Component{
 
                 Ticket ({ticket.stateId}) - {ticket.name}
 
-                <button>Edit</button>
+                <Link to={'/ticketUpdate/' + ticket.id}>
+                    <button>Edit</button>
+                </Link>
+
                 <button>Leave Feedback</button>
 
                 <TicketOverviewData ticket={ticket}/>

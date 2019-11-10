@@ -12,7 +12,7 @@ export default class TicketCreationBody extends React.Component{
                     <h3>Create new Ticket</h3>
                 </div>
 
-                <TicketCreationForm/>
+                <TicketCreationForm ticket={null} methodName={'Post'}/>
 
             </div>
         )

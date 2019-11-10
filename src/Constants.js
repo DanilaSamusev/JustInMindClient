@@ -1,6 +1,6 @@
 export class Constants {
 
-    static URGENCY = ['Medium', 'Low', 'Average', 'High', 'Critical'];
+    static URGENCY = ['Low', 'Average', 'High', 'Critical'];
     static STATES = ['Draft', 'New', 'Approved', 'Declined', 'In Progress', 'Done', 'Canceled'];
 
     static USER_ACTIONS = {
