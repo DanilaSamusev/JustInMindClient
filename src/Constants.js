@@ -9,15 +9,15 @@ export class Constants {
 
             'Draft': {
                 actions: [
-                    {name: 'Submit', stateId: 1},
-                    {name: 'Cancel', stateId: 6},
+                    {name: 'Submit', stateId: 2},
+                    {name: 'Cancel', stateId: 7},
                 ],
             },
 
             'Declined': {
                 actions: [
-                    {name: 'Submit', stateId: 1},
-                    {name: 'Cancel', stateId: 6},
+                    {name: 'Submit', stateId: 2},
+                    {name: 'Cancel', stateId: 7},
                 ],
             },
 
@@ -32,23 +32,23 @@ export class Constants {
 
             'Draft': {
                 actions: [
-                    {name: 'Submit', stateId: 1},
-                    {name: 'Cancel', stateId: 6},
+                    {name: 'Submit', stateId: 2},
+                    {name: 'Cancel', stateId: 7},
                 ],
             },
 
             'New': {
                 actions: [
-                    {name: 'Approve', stateId: 2},
-                    {name: 'Decline', stateId: 3},
-                    {name: 'Cancel', stateId: 6},
+                    {name: 'Approve', stateId: 3},
+                    {name: 'Decline', stateId: 4},
+                    {name: 'Cancel', stateId: 7},
                 ],
             },
 
             'Declined': {
                 actions: [
-                    {name: 'Submit', stateId: 1},
-                    {name: 'Cancel', stateId: 6},
+                    {name: 'Submit', stateId: 2},
+                    {name: 'Cancel', stateId: 7},
                 ],
             },
 
@@ -62,14 +62,14 @@ export class Constants {
 
             'Approved': {
                 actions: [
-                    {name: 'Assign', stateId: 4},
-                    {name: 'Cancel', stateId: 6},
+                    {name: 'Assign to me', stateId: 5},
+                    {name: 'Cancel', stateId: 7},
                 ],
             },
 
             'In Progress': {
                 actions: [
-                    {name: 'Done', stateId: 5},
+                    {name: 'Done', stateId: 6},
                 ],
             },
 

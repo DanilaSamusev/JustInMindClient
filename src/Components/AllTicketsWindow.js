@@ -50,7 +50,7 @@ export default class AllTicketsWindow extends React.Component {
                 }));
 
         localStorage.setItem('userId', '1');
-        localStorage.setItem('userRole', 'Manager')
+        localStorage.setItem('userRole', 'Engineer')
     }
 
     onClick(allTicketsButtonClassName, myTicketsButtonClassName) {

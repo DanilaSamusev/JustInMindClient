@@ -1,8 +1,6 @@
 import * as React from "react";
 import ToTicketListButton from "./ToTicketListButton";
 import {Link} from "react-router-dom";
-import TicketState from "./Ticket/TicketState";
-import TicketUrgency from "./Ticket/TicketUrgency";
 import {Constants} from "../Constants";
 
 export default class TicketOverviewWindow extends React.Component {
@@ -67,10 +65,10 @@ export default class TicketOverviewWindow extends React.Component {
                 <div className='ticketOverviewData'>
                     <div>Created on - {new Date(ticket.createdOn).toLocaleDateString('en-US')}</div>
                     <div>
-                        Status - <TicketState stateId={ticket.stateId - 1}/>
+                        Status - {Constants.STATES[this.props.stateId - 1]}
                     </div>
                     <div>
-                        Urgency - <TicketUrgency urgencyId={ticket.urgencyId}/>
+                        Urgency - {Constants.URGENCY[this.props.urgencyId - 1]}
                     </div>
                     <div>
                         Desired resolution date - {new Date(ticket.desiredResolutionDate).toLocaleDateString('en-US')}

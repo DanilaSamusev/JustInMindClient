@@ -25,7 +25,7 @@ export default class TicketCreationForm extends React.Component {
             this.state = {
                 name: '',
                 description: '',
-                desiredResolutionDate: '',
+                desiredResolutionDate: null,
                 comment: '',
                 categories: null,
                 categoryId: 0,

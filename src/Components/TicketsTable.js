@@ -1,5 +1,4 @@
 import React from 'react';
-import TicketUrgency from './Ticket/TicketUrgency';
 import ActionWithTicket from "./ActionWithTicket";
 import {Link} from "react-router-dom";
 import '../styles/ticketsTable.css'
@@ -44,7 +43,7 @@ export default class TicketsTable extends React.Component {
                                     }
                                 </td>
                                 <td>
-                                    <TicketUrgency urgencyId={ticket.urgencyId}/>
+                                    {Constants.URGENCY[ticket.urgencyId - 1]}
                                 </td>
                                 <td>
                                     {Constants.STATES[ticket.stateId - 1]}
