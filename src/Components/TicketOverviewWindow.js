@@ -1,7 +1,10 @@
 import * as React from "react";
 import ToTicketListButton from "./ToTicketListButton";
-import {Link} from "react-router-dom";
 import {Constants} from "../Constants";
+import {Link} from "react-router-dom";
+import "../styles/styles.css"
+import TicketHistory from "./TicketHistory";
+import TicketComments from "./TicketComments";
 
 export default class TicketOverviewWindow extends React.Component {
 
@@ -9,15 +12,22 @@ export default class TicketOverviewWindow extends React.Component {
         super(props);
 
         this.state = {
-
+            historyButtonClassName: ' focusedButton',
+            commentsButtonClassName: '',
+            ticketData: null,
             ticket: null,
         };
     }
 
     componentDidMount() {
 
-        let url = 'http://localhost:5000/api/ticket/ticketOverview?ticketId=' + this.props.match.params.ticketId;
+        this.fetchTicket();
+        this.fetchTicketData();
+    }
 
+    fetchTicket() {
+
+        let url = 'http://localhost:5000/api/ticket/ticketOverview?ticketId=' + this.props.match.params.ticketId;
         fetch(url,
             {
                 method: 'get',
@@ -34,21 +44,91 @@ export default class TicketOverviewWindow extends React.Component {
                         ticket: data[0],
                     };
                 }));
+    };
+
+    fetchTicketData() {
+
+        alert();
+
+        if (this.state.historyButtonClassName === ' focusedButton') {
+
+            let url = 'http://localhost:5000/api/ticket/ticketHistory?ticketId=' + this.props.match.params.ticketId;
+            fetch(url,
+                {
+                    method: 'get',
+                    headers:
+                        {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                        },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    this.setState(() => {
+                        console.log(data);
+                        return {
+                            ticketData: data,
+                        };
+                    });
+                })
+
+        } else {
+
+            if (this.state.historyButtonClassName === ' focusedButton') {
+
+                let url = 'http://localhost:5000/api/ticket/ticketComments?ticketId=' + this.props.match.params.ticketId;
+                fetch(url,
+                    {
+                        method: 'get',
+                        headers:
+                            {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json',
+                            },
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        this.setState(() => {
+                            console.log(data);
+                            return {
+                                ticketData: data,
+                            };
+                        });
+                    })
+            }
+        }
+    };
+
+    changeTicketData(historyButtonClassName, commentsButtonClassName) {
+
+        this.setState(() => {
+            return {
+                historyButtonClassName: historyButtonClassName,
+                commentsButtonClassName: commentsButtonClassName,
+            };
+        });
+
+        this.fetchTicketData();
     }
 
     render() {
 
         let ticket = this.state.ticket;
+        let ticketData = this.state.ticketData;
+        let ticketDataComponent;
+        let button = null;
 
-        if (ticket == null) {
+        if (ticket === null || ticketData === null) {
             return null;
         }
 
-        let button = null;
-
+        if (this.state.historyButtonClassName === ' focusedButton') {
+            ticketDataComponent = <TicketHistory ticketData={ticketData}/>
+        } else {
+            ticketDataComponent = <TicketComments ticketData={ticketData}/>
+        }
 
         if (Constants.STATES[ticket.stateId - 1] === 'Draft') {
-
             button =
                 <Link to={'/ticketUpdate/' + ticket.id}>
                     <button>Edit</button>
@@ -65,10 +145,10 @@ export default class TicketOverviewWindow extends React.Component {
                 <div className='ticketOverviewData'>
                     <div>Created on - {new Date(ticket.createdOn).toLocaleDateString('en-US')}</div>
                     <div>
-                        Status - {Constants.STATES[this.props.stateId - 1]}
+                        Status - {Constants.STATES[ticket.stateId - 1]}
                     </div>
                     <div>
-                        Urgency - {Constants.URGENCY[this.props.urgencyId - 1]}
+                        Urgency - {Constants.URGENCY[ticket.urgencyId - 1]}
                     </div>
                     <div>
                         Desired resolution date - {new Date(ticket.desiredResolutionDate).toLocaleDateString('en-US')}
@@ -93,8 +173,17 @@ export default class TicketOverviewWindow extends React.Component {
                     </div>
                 </div>
 
-                <button>History</button>
-                <button>Comments</button>
+                <button className={this.state.historyButtonClassName}
+                        onClick={() => this.changeTicketData('focusedButton', '')}>
+                    History
+                </button>
+                <button className={this.state.commentsButtonClassName}
+                        onClick={() => this.changeTicketData('', 'focusedButton')}>
+                    Comments
+                </button>
+
+                {ticketDataComponent}
+
             </div>
 
         )

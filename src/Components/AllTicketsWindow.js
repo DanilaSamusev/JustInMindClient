@@ -17,13 +17,13 @@ export default class AllTicketsWindow extends React.Component {
         this.changeTicketState = this.changeTicketState.bind(this);
     }
 
-    changeTicketState(){
+    changeTicketState() {
 
         let tickets = this.state.tickets;
 
         this.setState(() => {
             return {
-                tickets : tickets,
+                tickets: tickets,
             };
         });
     }
@@ -31,7 +31,6 @@ export default class AllTicketsWindow extends React.Component {
     componentDidMount() {
 
         let url = 'http://localhost:5000/api/ticket/allTickets';
-
         fetch(url,
             {
                 method: 'get',
@@ -50,7 +49,7 @@ export default class AllTicketsWindow extends React.Component {
                 }));
 
         localStorage.setItem('userId', '1');
-        localStorage.setItem('userRole', 'Engineer')
+        localStorage.setItem('userRole', 'Manager')
     }
 
     onClick(allTicketsButtonClassName, myTicketsButtonClassName) {
@@ -65,7 +64,7 @@ export default class AllTicketsWindow extends React.Component {
 
     selectTicketsByOwnerId(tickets, id) {
 
-        if (tickets === null){
+        if (tickets === null) {
             return tickets;
         }
 
@@ -87,8 +86,7 @@ export default class AllTicketsWindow extends React.Component {
 
         if (this.state.myTicketsButtonClassName === 'focusedButton') {
             ticketsToDisplay = this.selectTicketsByOwnerId(this.state.tickets, localStorage.getItem('userId'));
-        }
-        else{
+        } else {
             ticketsToDisplay = this.state.tickets;
         }
 
