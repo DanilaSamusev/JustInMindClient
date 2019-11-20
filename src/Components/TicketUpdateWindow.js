@@ -1,6 +1,6 @@
 import * as React from "react";
 import '../styles/ticketCreation/ticketCreationFrame.css'
-import TicketCreationForm from "./TicketCreation/TicketCreationForm";
+import TicketCreationForm from "./TicketCreationForm";
 
 export class TicketUpdateWindow extends React.Component {
 

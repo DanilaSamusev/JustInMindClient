@@ -1,7 +1,7 @@
 import React from 'react';
 import {Constants} from "../Constants";
 
-export default class ActionWithTicket extends React.Component {
+export class ActionWithTicket extends React.Component {
 
     changeTicketState(stateId) {
 

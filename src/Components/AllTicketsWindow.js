@@ -1,9 +1,10 @@
 import * as React from "react";
 import {Link} from "react-router-dom";
-import TicketsTable from "./TicketsTable";
+import {Constants} from "../Constants";
+import {ActionWithTicket} from "./ActionWithTicket";
 import "../styles/styles.css"
 
-export default class AllTicketsWindow extends React.Component {
+export class AllTicketsWindow extends React.Component {
 
     constructor(props) {
         super(props);
@@ -18,9 +19,7 @@ export default class AllTicketsWindow extends React.Component {
     }
 
     changeTicketState() {
-
         let tickets = this.state.tickets;
-
         this.setState(() => {
             return {
                 tickets: tickets,
@@ -29,7 +28,6 @@ export default class AllTicketsWindow extends React.Component {
     }
 
     componentDidMount() {
-
         let url = 'http://localhost:5000/api/ticket/allTickets';
         fetch(url,
             {
@@ -52,7 +50,7 @@ export default class AllTicketsWindow extends React.Component {
         localStorage.setItem('userRole', 'Manager')
     }
 
-    onClick(allTicketsButtonClassName, myTicketsButtonClassName) {
+    changeButtonFocus(allTicketsButtonClassName, myTicketsButtonClassName) {
 
         this.setState(() => {
             return {
@@ -82,12 +80,16 @@ export default class AllTicketsWindow extends React.Component {
 
     render() {
 
-        let ticketsToDisplay;
+        let tickets;
 
         if (this.state.myTicketsButtonClassName === 'focusedButton') {
-            ticketsToDisplay = this.selectTicketsByOwnerId(this.state.tickets, localStorage.getItem('userId'));
+            tickets = this.selectTicketsByOwnerId(this.state.tickets, localStorage.getItem('userId'));
         } else {
-            ticketsToDisplay = this.state.tickets;
+            tickets = this.state.tickets;
+        }
+
+        if (tickets === null){
+            return null;
         }
 
         return (
@@ -102,19 +104,57 @@ export default class AllTicketsWindow extends React.Component {
                 <div className='ticketSwitchPanel'>
                     <button
                         className={this.state.allTicketsButtonClassName}
-                        onClick={() => this.onClick('focusedButton', '')}>
+                        onClick={() => this.changeButtonFocus('focusedButton', '')}>
                         All Tickets
                     </button>
                     <button
                         className={this.state.myTicketsButtonClassName}
-                        onClick={() => this.onClick('', 'focusedButton')}>
+                        onClick={() => this.changeButtonFocus('', 'focusedButton')}>
                         My Tickets
                     </button>
                 </div>
 
                 <input className='searchingInput'/>
 
-                <TicketsTable tickets={ticketsToDisplay} changeTicketState={this.changeTicketState}/>
+                <div className='ticketsTable'>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Desired Date</th>
+                            <th>Urgency</th>
+                            <th>State</th>
+                            <th>Action</th>
+                        </tr>
+                        {
+                            tickets.map(ticket =>
+                                <tr key={ticket.id}>
+                                    <td>{ticket.id}</td>
+                                    <td>
+                                        <Link to={'/ticketOverview/' + ticket.id}>
+                                            {ticket.name}
+                                        </Link>
+                                    </td>
+                                    <td>
+                                        {
+                                            new Date(ticket.desiredResolutionDate).toLocaleDateString('en-US')
+                                        }
+                                    </td>
+                                    <td>
+                                        {Constants.URGENCY[ticket.urgencyId - 1]}
+                                    </td>
+                                    <td>
+                                        {Constants.STATES[ticket.stateId - 1]}
+                                    </td>
+                                    <td>
+                                        <ActionWithTicket ticket={ticket} changeTicketState={this.changeTicketState}/>
+                                    </td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         )
     }

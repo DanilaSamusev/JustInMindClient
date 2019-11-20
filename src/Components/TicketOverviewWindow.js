@@ -6,7 +6,7 @@ import "../styles/styles.css"
 import TicketHistory from "./TicketHistory";
 import TicketComments from "./TicketComments";
 
-export default class TicketOverviewWindow extends React.Component {
+export class TicketOverviewWindow extends React.Component {
 
     constructor(props) {
         super(props);
@@ -48,8 +48,6 @@ export default class TicketOverviewWindow extends React.Component {
 
     fetchTicketData() {
 
-        alert();
-
         if (this.state.historyButtonClassName === ' focusedButton') {
 
             let url = 'http://localhost:5000/api/ticket/ticketHistory?ticketId=' + this.props.match.params.ticketId;
@@ -65,7 +63,6 @@ export default class TicketOverviewWindow extends React.Component {
                 .then(response => response.json())
                 .then(data => {
                     this.setState(() => {
-                        console.log(data);
                         return {
                             ticketData: data,
                         };
@@ -74,41 +71,36 @@ export default class TicketOverviewWindow extends React.Component {
 
         } else {
 
-            if (this.state.historyButtonClassName === ' focusedButton') {
-
-                let url = 'http://localhost:5000/api/ticket/ticketComments?ticketId=' + this.props.match.params.ticketId;
-                fetch(url,
-                    {
-                        method: 'get',
-                        headers:
-                            {
-                                'Accept': 'application/json',
-                                'Content-Type': 'application/json',
-                            },
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        this.setState(() => {
-                            console.log(data);
-                            return {
-                                ticketData: data,
-                            };
-                        });
-                    })
-            }
+            let url = 'http://localhost:5000/api/ticket/ticketComments?ticketId=' + this.props.match.params.ticketId;
+            fetch(url,
+                {
+                    method: 'get',
+                    headers:
+                        {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                        },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    this.setState(() => {
+                        return {
+                            ticketData: data,
+                        };
+                    });
+                })
         }
     };
 
     changeTicketData(historyButtonClassName, commentsButtonClassName) {
-
         this.setState(() => {
             return {
                 historyButtonClassName: historyButtonClassName,
                 commentsButtonClassName: commentsButtonClassName,
             };
-        });
+        }, () => this.fetchTicketData());
 
-        this.fetchTicketData();
+
     }
 
     render() {
@@ -174,11 +166,11 @@ export default class TicketOverviewWindow extends React.Component {
                 </div>
 
                 <button className={this.state.historyButtonClassName}
-                        onClick={() => this.changeTicketData('focusedButton', '')}>
+                        onClick={() => this.changeTicketData(' focusedButton', '')}>
                     History
                 </button>
                 <button className={this.state.commentsButtonClassName}
-                        onClick={() => this.changeTicketData('', 'focusedButton')}>
+                        onClick={() => this.changeTicketData('', ' focusedButton')}>
                     Comments
                 </button>
 

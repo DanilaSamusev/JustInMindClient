@@ -17,11 +17,10 @@ export default class TicketHistory extends React.Component {
                         <th>Description</th>
                     </tr>
                     {
-                        ticketData.map(data => {
+                        ticketData.map((data, key) => {
                             let dateTime = data.date.toString();
-
                             return (
-                                <tr key={data.id}>
+                                <tr key={key}>
                                     <td>
                                         {
                                             new Date(dateTime).toLocaleDateString('en-US')
