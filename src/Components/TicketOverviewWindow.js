@@ -106,6 +106,7 @@ export class TicketOverviewWindow extends React.Component {
     render() {
 
         let ticket = this.state.ticket;
+        let leaveFeadBackButton = null;;
         let ticketData = this.state.ticketData;
         let ticketDataComponent;
         let button = null;
@@ -127,13 +128,16 @@ export class TicketOverviewWindow extends React.Component {
                 </Link>
         }
 
+        if (Constants.STATES[ticket.stateId - 1] === 'Done'){
+            leaveFeadBackButton = <button>Leave Feedback</button>
+        }
+
         return (
             <div>
                 <ToTicketListButton/>
                 <h3>Ticket ({ticket.stateId}) - {ticket.name}</h3>
                 {button}
-                <button>Leave Feedback</button>
-
+                {leaveFeadBackButton}
                 <div className='ticketOverviewData'>
                     <div>Created on - {new Date(ticket.createdOn).toLocaleDateString('en-US')}</div>
                     <div>
